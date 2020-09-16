@@ -20,3 +20,18 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: PowerShell@2
+  inputs:
+   targetType 'inline'
+    script:
+     $url = 'https://pulse-7.qtestnet.com/webhook/85a35e0b-90f0-4ae0-b1f0-a6353b6930da'
+      Set-Location -Path ".\target"
+      $payload = (Get-Content "cucumber-report.json" -Raw)
+      $body -@{
+        'projectId' = '91218'
+        'test-cycle' = '1789716' 
+        'requiresDecode' = 'true'
+        'result' = $payload
+}'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::tls12
+Invoke-RestMethod -Body $body -Method 'Post' -Uri $url

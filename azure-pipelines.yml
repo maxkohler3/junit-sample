@@ -24,9 +24,9 @@ steps:
   inputs:
    targetType 'inline'
     script:
-     $url = 'https://pulse-7.qtestnet.com/webhook/85a35e0b-90f0-4ae0-b1f0-a6353b6930da'
+     $url = 'https://pulse-7.qtestnet.com/webhook/938e4027-7ecd-446d-8125-6de56e7f254d'
       Set-Location -Path ".\target"
-      $payload = (Get-Content "cucumber-report.json" -Raw)
+      $payload = (Get-Content "junit.xml" -Raw)
       $body -@{
         'projectId' = '91218'
         'test-cycle' = '2031138' 

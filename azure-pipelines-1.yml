@@ -27,7 +27,7 @@ steps:
         script: |
           $url = 'https://pulse-7.qtestnet.com/webhook/938e4027-7ecd-446d-8125-6de56e7f254d'
           
-          $content = Get-Content "**/.xml" -Raw
+          $content = Get-Content "result.xml" -Raw
           $bytes = [System.Text.Encoding]::ASCII.GetBytes($content)
           $payload = [System.Convert]::ToBase64String($bytes)
           

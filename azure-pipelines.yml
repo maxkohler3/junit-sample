@@ -33,7 +33,7 @@ steps:
               
               $body = @{
                'projectId' = '91218'
-               'testcycle' = '2041752'
+               'testcycle' = '2399621'
                'requiresDecode' = 'true'
                'result' = $payload
               }
